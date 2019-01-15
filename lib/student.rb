@@ -22,7 +22,7 @@ class Student
   end
 
   def self.students_below_12th_grade
-    DB[:conn].execute("SELECT name FROM students WHERE grade < ?", 12).map {|row| self.new_from_db(row)}.first
+    DB[:conn].execute("SELECT name FROM students WHERE grade < ?", 12).map {|row| self.new_from_db(row)}
   end
 
 
