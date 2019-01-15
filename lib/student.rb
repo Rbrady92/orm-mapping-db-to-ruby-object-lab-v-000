@@ -15,15 +15,15 @@ class Student
   end
 
   def self.find_by_name(name)
-    DB[:conn].execute("SELECT * FROM students WHERE name = ?", name).map {|row| self.new_from_db(row)}
+    DB[:conn].execute("SELECT * FROM students WHERE name = ?", name).map {|row| self.new_from_db(row)}.first
   end
 
   def self.all_students_in_grade_9
-    DB[:conn].execute("SELECT name FROM students WHERE grade = ?", 9).map {|row| self.new_from_db(row)}.first
+    DB[:conn].execute("SELECT name FROM students WHERE grade = 9").map {|row| self.new_from_db(row)}
   end
 
   def self.students_below_12th_grade
-    DB[:conn].execute("SELECT name FROM students WHERE grade < ?", 12).map {|row| self.new_from_db(row)}.first
+    DB[:conn].execute("SELECT name FROM students WHERE grade < 12").map {|row| self.new_from_db(row)}
   end
 
 
