@@ -32,7 +32,7 @@ class Student
 
   def first_student_in_grade_10
     DB[:conn].execute("SELECT * FROM students WHERE grade = 10 LIMIT 1").map {|row| self.new_from_db(row)}
-  end 
+  end
 
 
 
